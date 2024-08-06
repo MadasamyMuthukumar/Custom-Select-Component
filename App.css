@@ -1,0 +1,30 @@
+.container-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 20px;
+    background: url('https://wallpapers.com/images/hd/4k-programming-hello-world-text-tpiuwb02b1g2u7kb.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.title {
+    font-size: 24px;            /* Font size of the title */
+    font-weight: bold;          /* Makes the text bold */
+    color: #333;                 /* Dark gray color for the text */
+    margin: 10px 0;             /* Vertical margin (top and bottom) for spacing */
+    text-align: center;         /* Center the text alignment (if needed) */
+    display: block;            /* Makes the span behave like a block-level element */
+    letter-spacing: 1px;       /* Slightly spaced out letters */
+    line-height: 1.5;          /* Line height for better readability */
+    text-transform: uppercase; /* Transform text to uppercase */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+

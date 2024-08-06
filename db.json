@@ -1,0 +1,32 @@
+{
+    "options": [
+        {
+            "id": 1,
+            "label": "Mango"
+        },
+        {
+            "id": 2,
+            "label": "Orange"
+        },
+        {
+            "id": 3,
+            "label": "Watermelon"
+        },
+        {
+            "id": 4,
+            "label": "Apple"
+        },
+        {
+            "id": 5,
+            "label": "Banana"
+        },
+        {
+            "id": 6,
+            "label": "Strawberry"
+        },
+        {
+            "id": 7,
+            "label": "Gauva"
+        }
+    ]
+}
