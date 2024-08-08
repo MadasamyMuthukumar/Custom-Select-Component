@@ -1,3 +1,4 @@
+
 .container-wrapper{
     display: flex;
     justify-content: center;
@@ -5,26 +6,40 @@
     flex-direction: column;
     height: 100vh;
     gap: 20px;
-    background: url('https://wallpapers.com/images/hd/4k-programming-hello-world-text-tpiuwb02b1g2u7kb.jpg');
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQYAAACUCAMAAABGMnfyAAAAq1BMVEUAAAAeHh5ISEgUFBQDDRB1dXWIiIienp4zMzNxcXGDg4OSkpKxsbFERETFxcWjo6MCERQFCAoGRlMHOEIJQUwLSVMLUl0FHyIGKi8HVmQJQEgTU1YQWF5iYmIqKioUYGYXa3AhamgEFxkgenwbVlMmcW1XV1cogH0fXVYyfXUNIR8uiYM1h3o8mpAgYl8VLSgbODAfRz1FlYIwa14MGRU5fm0mUENLoolAinXEaHmDAAABVklEQVR4nO3YSVfiUBAG0BhCQMEBR9oJcQbHVlH//y+TIYZdL7uiuXeR1Hsniy+1qPPOSxIAAAAAAAAAAAAAAAAAAADgp2qvRieohLVOdIJK6K5HJ6iEjZXoBFWQbjaiIwTKsqLoNKeP3lYvMkyYbHunqLrpbLm7U8c+ZHv7B4uqsZiQ/T+HkXmCHB0XXUhOOqfzd3+wFxcnyGAw/i7no2Gmf3YUlCbKcHhe1pvlGfLg4jIkTZSrs2Xdbl2X9fnN7f8PE2d0s6yb+fLUML6rVRuS0X05GvK83B0/PIakiTO6f1oUvfx7QibPD8OoOGEmn8/zd9pJi52/L69xcaK8TV7mfThpFRvvHzXswrQPn6+z0/NqcdfwNpnU8TA9/fHZlFzJ1xar3jj759e/W7t1Gh2hCtJudIJKKCdkrTVaLqWnGk2jAQAAAAAAAAAAAAAAAAAAAH6sL7ZgDdArm6FuAAAAAElFTkSuQmCC');
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
-.container {
+.container{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 .title {
-    font-size: 24px;            /* Font size of the title */
-    font-weight: bold;          /* Makes the text bold */
-    color: #333;                 /* Dark gray color for the text */
-    margin: 10px 0;             /* Vertical margin (top and bottom) for spacing */
-    text-align: center;         /* Center the text alignment (if needed) */
-    display: block;            /* Makes the span behave like a block-level element */
-    letter-spacing: 1px;       /* Slightly spaced out letters */
-    line-height: 1.5;          /* Line height for better readability */
-    text-transform: uppercase; /* Transform text to uppercase */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
+    font-size: 24px;            
+    font-weight: bold;          
+    color: white;                 
+    margin: 10px 0;             
+    text-align: center;         
+    display: block;          
+    letter-spacing: 1px;    
+    line-height: 1.5;          
+    text-transform: uppercase; 
+    background: linear-gradient(45deg, #a0a0a0, #f5f5dc); /* Grey to Beige */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text color transparent to show gradient */
+    background-clip: text; /* Clip background to text */
 
+}
+
+/*Media Queriess*/
+@media only screen and (max-width: 768px) {
+    .title{
+        font-size: 20px;
+    }
+    .container{
+        flex-direction: column !important;
+    }
+}
