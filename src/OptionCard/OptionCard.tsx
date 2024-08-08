@@ -4,7 +4,8 @@ import styles from '../SelectComponent/select.module.css'
 type OptionListProps = {
     options: SelectOption[];
     onOptionClick: (option: SelectOption) => void;
-  }
+}
+//Selected Option Card Component
 export function OptionCard({ options, onOptionClick }:OptionListProps){
     return (
         <div className={styles.value}>

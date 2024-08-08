@@ -1,10 +1,15 @@
+//import statements
+
 import { useEffect, useRef, useState } from 'react'
 import styles from './select.module.css'
 import { SelectOption } from '../Types/types'
 import { SelectProps } from '../Types/types'
 import { OptionCard } from '../OptionCard/OptionCard'
+import { useOptionsContext } from '../Context/OptionsContext'
 
-export function Select({ isMultiple, value, onChange, options }: SelectProps) {
+export function Select({ isMultiple, value, onChange }: SelectProps) {
+    const { options } = useOptionsContext();
+
     const [isOpen, setIsOpen] = useState(false) /*To handle toggling of dropdown box */
     const [highlightedIndex, setHighlightedIndex] = useState(0) /**by deufalt first one will highligheted */
     const containerRef = useRef<HTMLDivElement>(null) //reference of contianer div
@@ -15,6 +20,7 @@ export function Select({ isMultiple, value, onChange, options }: SelectProps) {
          */
         isMultiple ? onChange([]) : onChange(undefined);
     }
+
     /**making selection of options */
     function selectedOption(option: SelectOption) {
         if (isMultiple) {
@@ -41,6 +47,7 @@ export function Select({ isMultiple, value, onChange, options }: SelectProps) {
          */
         return isMultiple ? value.includes(option) : option === value
     }
+
     useEffect(() => {
         /**everytime when dropdown box collapses needs to highlight starts from 0 */
         if (isOpen) setHighlightedIndex(0)
@@ -101,29 +108,62 @@ export function Select({ isMultiple, value, onChange, options }: SelectProps) {
             ref={containerRef}
         >
             {/* Select Bar Section */}
-            <span className={styles.value}>{isMultiple ? 
-            (<OptionCard  options={Array.isArray(value) ? value : []}  onOptionClick={selectedOption}/>
-            ) : value?.label}</span>
+
+            <span className={styles.value}>
+            { 
+                 isMultiple ? 
+                 (
+                   (value.length == 0) ? 
+                       <span className='empty-msg'>Please Select</span> : (
+                         (
+                          <OptionCard options={Array.isArray(value) ? value : []} onOptionClick={selectedOption} />
+                         )
+                    )
+                ) : value?.label
+            }
+            </span>
+            {/* Clear btn section */}
             <button
-                onClick={(e) => {
-                    e.stopPropagation() /*stops triggering event of parent element */
-                    clearOptions()
-                }} className={styles["clear-btn"]}>&times;</button>
+                onClick={(e) => 
+                    {
+                        e.stopPropagation() /*stops triggering event of parent element */
+                        clearOptions()
+                    }
+                  } 
+                className={styles["clear-btn"]}
+            >
+                &times;
+                
+            </button>
+             
+             {/* Dvidider and dropdown symbol */}
             <div className={styles.divider}></div>
             <div className={styles.caret}></div>
+
             {/* Options Section */}
             <ul className={`${styles.options} ${isOpen ? styles.show : ""} `}>
                 {
                     options.map((option, index) => (
-                        <li onClick={e => {
-                            e.stopPropagation()
-                            selectedOption(option)
-                            setIsOpen(false) /**again closing the dropdown after selected */
-                        }}
-                            onMouseEnter={() => setHighlightedIndex(index)}
-                            key={option.id} className={`${styles.option} ${isOptionSelected(option) ? styles.selected : ""
+                        <li 
+                            onClick={e => {
+                                e.stopPropagation()
+                                selectedOption(option)
+                                setIsOpen(false) /**again closing the dropdown after selected */
                                 }
-                        ${index === highlightedIndex ? styles.highlighted : ""}`}>{option.label}</li>
+                            }
+                            onMouseEnter={
+                                () => setHighlightedIndex(index)
+                            }
+                            key={option.id} 
+                            className={
+                                `${styles.option} 
+                                 ${isOptionSelected(option) ? styles.selected : ""}
+                                 ${index === highlightedIndex ? styles.highlighted : ""}`
+                                }
+                        >
+                            {option.label}
+
+                        </li>
                     ))
                 }
             </ul>
