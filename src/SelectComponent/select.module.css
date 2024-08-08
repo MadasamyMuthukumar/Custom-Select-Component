@@ -1,27 +1,29 @@
 .container {
-   position: relative;
-   width: 20em;
-   min-height: 1.5em;
-   border: .05em solid #777;
-   display: flex;
-   align-items: center;
-   gap: .5em;
-   padding: .5em;
-   border-radius: .25em;
-   outline: none;
-   background: #fefae0;
+    position: relative;
+    width: 30em;
+    min-height: 3.5em;
+    border: .05em solid #777;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    padding: .5em;
+    border-radius: .25em;
+    outline: none;
+    background: white;
 }
 
 .container:focus {
-    border-color: hsl(200, 100%, 50%); /*hue saturation lighness*/
-
+    border-color: hsl(200, 100%, 50%);
+    /*hue saturation lighness*/
 }
 
 .value {
-    flex-grow: 1; /*take one part of available space*/
+    flex-grow: 1;
+    /*take one part of available space*/
     display: flex;
     gap: .5em;
-    flex-wrap: wrap; /*wrap to next line if more options selected*/
+    flex-wrap: wrap;
+    /*wrap to next line if more options selected*/
 }
 
 .clear-btn {
@@ -41,11 +43,14 @@
 
 .divider {
     background-color: #777;
-    align-self: stretch; /*Stretch to fill the full height of container*/
+    align-self: stretch;
+    /*Stretch to fill the full height of container*/
     width: .05em;
 }
+
 .caret {
-    translate: 0 25%; /*center vertically*/
+    translate: 0 25%;
+    /*center vertically*/
     border: .25em solid transparent;
     border-top-color: #777;
 }
@@ -64,14 +69,16 @@
     border-radius: .25em;
     width: 100%;
     left: 0;
-    top: calc(100% + 0.25em); /*provide space above the list of options*/
+    top: calc(100% + 0.25em);
+    /*provide space above the list of options*/
     background-color: grey;
     z-index: 100;
+    font-family: "Outfit", sans-serif;
 
 }
 
 .options.show {
-display: block;
+    display: block;
 }
 
 /*Individual option*/
@@ -88,6 +95,7 @@ display: block;
     background-color: hsl(200, 100%, 50%);
     color: white;
 }
+
 /*Style for multiple option card items*/
 .option-card {
     display: flex;
@@ -97,20 +105,36 @@ display: block;
     padding: .15em .25em;
     gap: .25em;
     cursor: pointer;
-    background: #faedcd;
+    background: white;
     outline: none;
 }
+
 .option-card:hover,
 .option-card:focus {
-    background-color: hsl(0,100%,90%);
-    border-color: hsl(0,100%,30%);
+    background-color: hsl(0, 100%, 90%);
+    border-color: hsl(0, 100%, 30%);
 }
-.option-card > .remove-btn {
+
+.option-card>.remove-btn {
     font-size: 1.25em;
     color: #777;
 }
-.option-card:hover > .remove-btn,
-.option-card:focus > .remove-btn {
+
+.option-card:hover>.remove-btn,
+.option-card:focus>.remove-btn {
     /*targeting the direct children remove button*/
-    color: hsl(0,100%,30%);
+    color: hsl(0, 100%, 30%);
+}
+
+/*Media queries*/
+
+@media only screen and (max-width: 768px) {
+    .container{
+        flex-direction: flex !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .container{
+        width: 20em;
+    }
 }

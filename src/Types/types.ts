@@ -15,5 +15,5 @@ type MultipleSelectProps = {
 }
 
 export type SelectProps = {            //type of Select Component props
-    options: SelectOption[],   //Array of SelectOtpion
+   //Array of SelectOtpion
 } & (SingleSelectProps | MultipleSelectProps) //Either it can be single select or multiple select
