@@ -38,7 +38,7 @@ function App() {
   if (error) return <h1>{error}</h1>
 
   return <div className="container-wrapper">
-    <span className="title">Custom Container Component</span>
+    <span className="title">Custom Select Component</span>
     <div className="container">
       <Select isMultiple  value={multiValue} onChange={op => setMultiValue(op)} />
       <br />
